@@ -101,7 +101,7 @@ spec:
 
 ``minikube addons enable ingress ``
 
-![POD](./imatges/openSSL.PNG)  
+![IngressAddon](./imatges/ingressaddon.PNG)  
 
 
 ## Generating a Self-Signed Cercificate (OpenSSL):
