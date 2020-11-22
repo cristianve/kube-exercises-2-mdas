@@ -1,0 +1,32 @@
+apiVersion: v1
+kind: Ingress
+metadata:
+  labels:
+    app: nginx-server
+  name: nginx-server
+  namespace: default
+spec:
+  rules:
+    - host: nginx-server
+      http:
+        paths:
+          - path: /
+            pathType: Prefix
+            backend:
+              service:
+                name: web
+                port:
+                  number: 8080
+  containers:
+  - image: nginx:1.19.4
+    imagePullPolicy: Always
+    name: nginx
+    resources:
+        limits:
+            cpu: 100m
+            memory: 256Mi
+        requests: 
+             cpu: 100m
+             memory: 256Mi
+
+             
