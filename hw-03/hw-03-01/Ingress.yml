@@ -1,0 +1,20 @@
+apiVersion: networking.k8s.io/v1beta1
+kind: Ingress
+metadata:
+  name: nginx-ingress
+  annotations:
+    nginx.ingress.kubernetes.io/rewrite-target: /$1
+spec:
+  tls:
+    - hosts:
+        - "cristian.student.lasalle.com"
+      secretName: nginx-secret
+  rules:
+    - host: "cristian.student.lasalle.com"
+      http:
+        paths:
+          - path: /
+            pathType: Prefix
+            backend:
+              serviceName: nginx-server-service
+              servicePort: 80
