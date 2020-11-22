@@ -107,7 +107,7 @@ spec:
 
 ``openssl req -x509 -newkey rsa:4096 -keyout key.pem -out cert.pem -days 365 -subj "/CN=cristian.student.lasalle.com" ``
 
-![POD](./imatges/openSSL.PNG)  
+![OpenSSL](./imatges/openssl.PNG)  
 
 
 ### Secret 
