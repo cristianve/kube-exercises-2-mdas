@@ -1,24 +1,19 @@
 apiVersion: v1
 kind: Pod
 metadata:
+  name: nginx-server
   labels:
     app: nginx-server
-  name: nginx-server
-  namespace: default
 spec:
-  restartPolicy: Never
-  hostAliases:
-  - ip: "127.0.0.1"
-    hostnames:
-    - "cristian.student.lasalle.com"
   containers:
-  - image: nginx:1.19.4
-    imagePullPolicy: Always
-    name: nginx
-    resources:
+    - name: nginx
+      image: nginx:1.19.4
+      ports:
+        - containerPort: 80
+      resources:
         limits:
-            cpu: 100m
-            memory: 256Mi
-        requests: 
-             cpu: 100m
-             memory: 256Mi
+          cpu: "500m"
+          memory: "128Mi"
+        requests:
+          memory: "64Mi"
+          cpu: "250m"
